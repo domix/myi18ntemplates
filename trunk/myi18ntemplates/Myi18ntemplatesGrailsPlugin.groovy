@@ -1,6 +1,6 @@
 
 class Myi18ntemplatesGrailsPlugin {
-    def version = 0.2
+    def version = 0.3
     def dependsOn = [:]
 	def author = "Domingo Suarez Torres"
 	def authorEmail = "domingo.suarez@gmail.com"
