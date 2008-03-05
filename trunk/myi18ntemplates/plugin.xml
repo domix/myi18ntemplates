@@ -1,0 +1,8 @@
+<plugin name='myi18ntemplates' version='0.1'>
+  <author>Domingo Suarez Torres</author>
+  <authorEmail>domingo.suarez@gmail.com</authorEmail>
+  <title>My I18n Templates</title>
+  <description>This plugin offers i18n scaffolding templates to generate a full internationalizable application.</description>
+  <documentation>http://code.google.com/p/myi18ntemplates/wiki/Plugin</documentation>
+  <resources />
+</plugin>
