@@ -17,11 +17,6 @@
             <g:if test="\${flash.message}">
             <div class="message"><g:message code="\${flash.message}" args="\${flash.args}" default="\${flash.defaultMessage}" /></div>
             </g:if>
-            <g:hasErrors bean="\${${propertyName}}">
-            <div class="errors">
-                <g:renderErrors bean="\${${propertyName}}" as="list" />
-            </div>
-            </g:hasErrors>
             <g:form method="post" <%= multiPart ? ' enctype="multipart/form-data"' : '' %>>
                 <input type="hidden" name="id" value="\${${propertyName}?.id}" />
                 <div class="dialog">
@@ -45,6 +40,11 @@
                                 </td>
                                 <td valign="top" class="value \${hasErrors(bean:${domainClass.propertyName},field:'${p.name}','errors')}">
                                     ${renderEditor(p)}
+									<g:hasErrors bean="\${${propertyName}}" field="${p.name}">
+						            <div class="errors">
+						                <g:renderErrors bean="\${${propertyName}}" as="list" field="${p.name}"/>
+						            </div>
+						            </g:hasErrors>
                                 </td>
                             </tr> 
                         <%  }   } %>
