@@ -41,6 +41,7 @@
                                 if(display) { %>
                             <tr class="prop">
                                 <td valign="top" class="name">
+									<% if(!cp?.blank) { %><span class="req">*</span><% } %>
                                     <label for="${p.name}"><g:message code="${propertyName}.${p.name}" default="${p.naturalName}" />:</label>
                                 </td>
                                 <td valign="top" class="value \${hasErrors(bean:${domainClass.propertyName},field:'${p.name}','errors')}">
