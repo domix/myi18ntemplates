@@ -5,6 +5,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="layout" content="main" />
         <title><g:message code="${propertyName}.edit" default="Edit ${className}" /></title>
+
+		<g:javascript library="prototype" />
+		<g:javascript library="prototype/effects" />
+		<g:javascript library="validation/validation" />
+		
+		<link rel="stylesheet" href="\${createLinkTo(dir:'css/validation',file:'validation.css')}" />
     </head>
     <body>
         <div class="nav">
@@ -17,7 +23,7 @@
             <g:if test="\${flash.message}">
             <div class="message"><g:message code="\${flash.message}" args="\${flash.args}" default="\${flash.defaultMessage}" /></div>
             </g:if>
-            <g:form method="post" <%= multiPart ? ' enctype="multipart/form-data"' : '' %>>
+            <g:form method="post" name="${propertyName}Form" <%= multiPart ? ' enctype="multipart/form-data"' : '' %>>
                 <input type="hidden" name="id" value="\${${propertyName}?.id}" />
                 <div class="dialog">
                     <table>
@@ -56,6 +62,9 @@
                     <span class="button"><g:actionSubmit class="delete" onclick="return confirm('\${message(code:'delete.confirm', 'default':'Are you sure?')}');" action="Delete" value="\${message(code:'delete', 'default':'Delete')}" /></span>
                 </div>
             </g:form>
+			<script type="text/javascript">
+				var valid = new Validation('${propertyName}Form', {immediate : true});
+			</script>
         </div>
     </body>
 </html>

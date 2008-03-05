@@ -5,6 +5,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="layout" content="main" />
         <title><g:message code="${propertyName}.create" default="Create ${className}" /></title>
+
+		<g:javascript library="prototype" />
+		<g:javascript library="prototype/effects" />
+		<g:javascript library="validation/validation" />
+		
+		<link rel="stylesheet" href="\${createLinkTo(dir:'css/validation',file:'validation.css')}" />
     </head>
     <body>
         <div class="nav">
@@ -16,7 +22,7 @@
             <g:if test="\${flash.message}">
             <div class="message"><g:message code="\${flash.message}" args="\${flash.args}" default="\${flash.defaultMessage}" /></div>
             </g:if>
-            <g:form action="save" method="post" <%= multiPart ? ' enctype="multipart/form-data"' : '' %>>
+            <g:form action="save" name="${propertyName}Form" method="post" <%= multiPart ? ' enctype="multipart/form-data"' : '' %>>
                 <div class="dialog">
                     <table>
                         <tbody>
@@ -54,6 +60,9 @@
                     <span class="button"><input class="save" type="submit" value="\${message(code:'create', 'default':'Create')}" /></span>
                 </div>
             </g:form>
+			<script type="text/javascript">
+				var valid = new Validation('${propertyName}Form', {immediate : true});
+			</script>
         </div>
     </body>
 </html>

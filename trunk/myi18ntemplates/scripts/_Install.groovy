@@ -28,3 +28,9 @@ Ant.copy(todir: "${basedir}/src/templates/scaffolding", overwrite: true) {
 Ant.copy(todir: "${basedir}/grails-app/i18n", overwrite: true) {
     fileset(dir: "${pluginBasedir}/grails-app/i18n")
 }
+
+Ant.copy(tofile: "${basedir}/web-app/css/validation/validation.css", file: "${pluginBasedir}/src/grails/templates/css/validation/validation.css", overwrite:true) {
+}
+
+Ant.copy(tofile: "${basedir}/web-app/js/validation/validation.js", file: "${pluginBasedir}/src/grails/templates/js/validation/validation.js", overwrite:true) {
+}
